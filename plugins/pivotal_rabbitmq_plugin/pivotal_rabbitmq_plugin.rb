@@ -158,11 +158,11 @@ module NewRelic
         return unless rmq_manager.queues.length > 0
         rmq_manager.queues.each do |q|
           next if q['name'].start_with?('amq.gen')
-          report_metric_check_debug 'Queue' + q['vhost'] + q['name'] + '/Messages/Ready', 'message', q['messages_ready']
-          report_metric_check_debug 'Queue' + q['vhost'] + q['name'] + '/Memory', 'bytes', q['memory']
-          report_metric_check_debug 'Queue' + q['vhost'] + q['name'] + '/Messages/Total', 'message', q['messages']
-          report_metric_check_debug 'Queue' + q['vhost'] + q['name'] + '/Consumers/Total', 'consumers', q['consumers']
-          report_metric_check_debug 'Queue' + q['vhost'] + q['name'] + '/Consumers/Active', 'consumers', q['active_consumers']
+          report_metric_check_debug 'Queue/' + q['vhost'] + q['name'] + '/Messages/Ready', 'message', q['messages_ready']
+          report_metric_check_debug 'Queue/' + q['vhost'] + q['name'] + '/Memory', 'bytes', q['memory']
+          report_metric_check_debug 'Queue/' + q['vhost'] + q['name'] + '/Messages/Total', 'message', q['messages']
+          report_metric_check_debug 'Queue/' + q['vhost'] + q['name'] + '/Consumers/Total', 'consumers', q['consumers']
+          report_metric_check_debug 'Queue/' + q['vhost'] + q['name'] + '/Consumers/Active', 'consumers', q['active_consumers']
         end
       end
     end
