@@ -40,7 +40,7 @@ agents:
     # Note: This logs the metrics locally and does not send data to new relic.
     #debug: false
     # Set the plugin name explicitly to override the default of host name parsed from the api URL
-    #plugin_name: "RabbitMQ Plugin"
+    #name: "RabbitMQ Plugin"
 
 # Configuration for vFabric Web Server/mod_bmx
   httpd_mod_bmx:
