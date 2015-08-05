@@ -35,10 +35,14 @@ module NewRelic
     class Agent < NewRelic::Plugin::Agent::Base
       agent_guid 'com.pivotal.newrelic.plugin.rabbitmq'
       agent_version '1.0.5'
-      agent_config_options :management_api_url, :debug
+      agent_config_options :management_api_url, :debug, :plugin_name
       agent_human_labels('RabbitMQ') do
-        uri = URI.parse(management_api_url)
-        "#{uri.host}:#{uri.port}"
+        if plugin_name
+          plugin_name
+        else
+          uri = URI.parse(management_api_url)
+          "#{uri.host}:#{uri.port}"
+        end
       end
 
       def poll_cycle
